@@ -31,11 +31,39 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["z"] = { "<cmd>ZenMode<cr>", "Zen" }
-lvim.builtin.which_key.mappings["r"] = {
+lvim.builtin.which_key.mappings["R"] = {
     name = "Replace",
     r = { "<cmd>lua require('spectre').open()<cr>", "Replace" },
     w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word" },
     f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
+}
+lvim.builtin.which_key.mappings["r"] = {
+    name = "Rust Analyzer",
+    h = {
+        name = "Hover",
+        a = { "<cmd>lua require'rust-tools.hover_actions'.hover_actions()<cr>", "Hover Actions" },
+        r = { "<cmd>lua require'rust-tools.hover_range'.hover_range()<cr>", "Hover Range" },
+    },
+    i = {
+        name = "Inlay hints",
+        d = { "<cmd>lua require('rust-tools.inlay_hints').disable_inlay_hints()<cr>", "Disable Hints" },
+        s = { "<cmd>lua require('rust-tools.inlay_hints').set_inlay_hints()<cr>", "Set Hints" },
+        t = { "<cmd>lua require('rust-tools.inlay_hints').toggle_inlay_hints()<cr>", "Toggle Hints" },
+    },
+    j = { "<cmd>lua require'rust-tools.join_lines'.join_lines()<cr>", "Join Lines" },
+    m = { "<cmd>lua require'rust-tools.expand_macro'.expand_macro()<cr>", "Expand Macro" },
+    o = { "<cmd>lua require'rust-tools.open_cargo_toml'.open_cargo_toml()<cr>", "Open cargo.toml" },
+    p = { "<cmd>lua require'rust-tools.parent_module'.parent_module()<cr>", "Parent Module" },
+    r = { "<cmd>lua require('rust-tools.runnables').runnables()<cr>", "Runnables" },
+}
+lvim.builtin.which_key.mappings["D"] = {
+    name = "Diffview",
+    c = { "<cmd>DiffviewClose<cr>", "DiffviewClose" },
+    f = { "<cmd>DiffviewFocusFiles<cr>", "DiffviewFocusFiles" },
+    o = { "<cmd>DiffviewOpen<cr>", "DiffviewOpen" },
+    r = { "<cmd>DiffviewRefresh<cr>", "DiffviewRefresh" },
+    t = { "<cmd>DiffviewToggleFiles<cr>", "DiffviewToggleFiles" },
+
 }
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 -- lvim.builtin.which_key.mappings["t"] = {
@@ -163,6 +191,9 @@ lvim.plugins = {
     {
         "sindrets/diffview.nvim",
         event = "BufRead",
+        config = function()
+            require("pepeye.diffview").config()
+        end,
     },
     {
         "f-person/git-blame.nvim",
