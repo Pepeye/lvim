@@ -30,6 +30,13 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- end
 
 -- Use which-key to add extra bindings with the leader-key prefix
+lvim.builtin.which_key.mappings["z"] = { "<cmd>ZenMode<cr>", "Zen" }
+lvim.builtin.which_key.mappings["r"] = {
+    name = "Replace",
+    r = { "<cmd>lua require('spectre').open()<cr>", "Replace" },
+    w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word" },
+    f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
+}
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 -- lvim.builtin.which_key.mappings["t"] = {
 --   name = "+Trouble",
@@ -131,11 +138,27 @@ lvim.builtin.lualine.options.theme = {
 lvim.plugins = {
     -- {"lunarvim/colorschemes"},
     { "shaunsingh/nord.nvim" },
-    {"folke/tokyonight.nvim"},
+    { "folke/tokyonight.nvim" },
+    {
+        "pwntester/octo.nvim",
+        event = "BufRead",
+        config = function()
+            require("pepeye.octo").config()
+        end,
+    },
     {
         "ray-x/lsp_signature.nvim",
-        config = function() require"lsp_signature".on_attach() end,
-        event = "InsertEnter"
+        event = "InsertEnter",
+        config = function()
+            require("pepeye.lsp_signature").config()
+        end,
+    },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        -- event = "BufReadPre",
+        config = function()
+            require "pepeye.blankline"
+        end,
     },
     {
         "sindrets/diffview.nvim",
@@ -157,93 +180,63 @@ lvim.plugins = {
         end,
     },
     {
+        "nacro90/numb.nvim",
+        event = "BufRead",
+        config = function()
+            require("pepeye.numb").config()
+        end,
+    },
+    {
+        "monaqa/dial.nvim",
+        event = "BufRead",
+        config = function()
+            require("pepeye.dial").config()
+        end,
+    },
+    {
+        "rcarriga/nvim-notify",
+        event = "BufRead",
+        config = function()
+            require("pepeye.notify").config()
+        end,
+    },
+    {
+        "simrat39/symbols-outline.nvim",
+        -- cmd = "SymbolsOutline",
+        config = function()
+            require("pepeye.outline").config()
+        end,
+    },
+    {
+        "folke/twilight.nvim",
+        config = function()
+            require("pepeye.twilight").config()
+        end
+    },
+    {
         "norcalli/nvim-colorizer.lua",
         config = function()
-            require("colorizer").setup({ "*" }, {
-                RGB = true, -- #RGB hex codes
-                RRGGBB = true, -- #RRGGBB hex codes
-                RRGGBBAA = true, -- #RRGGBBAA hex codes
-                rgb_fn = true, -- CSS rgb() and rgba() functions
-                hsl_fn = true, -- CSS hsl() and hsla() functions
-                css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-                css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
-                })
+            require("pepeye.colorizer").config()
+        end,
+    },
+    {
+        "windwp/nvim-spectre",
+        event = "BufRead",
+        config = function()
+            require("pepeye.spectre").config()
+        end,
+    },
+    {
+        "folke/zen-mode.nvim",
+        config = function()
+            require("pepeye.zen").config()
         end,
     },
     {
         "simrat39/rust-tools.nvim",
         event = "BufRead",
         config = function()
-        require("rust-tools").setup {
-            opts = {
-                    tools = { -- rust-tools options
-                        -- Automatically set inlay hints (type hints)
-                        autoSetHints = true,
-                        -- Whether to show hover actions inside the hover window
-                        -- This overrides the default hover handler 
-                        hover_with_actions = true,
-                        runnables = {
-                            -- whether to use telescope for selection menu or not
-                            use_telescope = true
-                            -- rest of the opts are forwarded to telescope
-                        },
-
-                        debuggables = {
-                            -- whether to use telescope for selection menu or not
-                            use_telescope = true
-                            -- rest of the opts are forwarded to telescope
-                        },
-
-                        -- These apply to the default RustSetInlayHints command
-                        inlay_hints = {
-
-                            -- Only show inlay hints for the current line
-                            only_current_line = false,
-                            only_current_line_autocmd = "CursorHold",
-                            show_parameter_hints = true,
-                            parameter_hints_prefix = "<- ",
-                            other_hints_prefix = "=> ",
-                            max_len_align = false,
-                            max_len_align_padding = 1,
-                            right_align = false,
-                            right_align_padding = 7,
-                            highlight = "Comment",
-                        },
-
-                        hover_actions = {
-                            border = {
-                                {"╭", "FloatBorder"}, {"─", "FloatBorder"},
-                                {"╮", "FloatBorder"}, {"│", "FloatBorder"},
-                                {"╯", "FloatBorder"}, {"─", "FloatBorder"},
-                                {"╰", "FloatBorder"}, {"│", "FloatBorder"}
-                            },
-                            auto_focus = false
-                        },
-
-                        -- settings for showing the crate graph based on graphviz and the dot
-                        -- command
-                        -- crate_graph = {
-                        --     -- Backend used for displaying the graph
-                        --     -- see: https://graphviz.org/docs/outputs/
-                        --     -- default: x11
-                        --     backend = "x11",
-                        --     -- where to store the output, nil for no output stored (relative
-                        --     -- path from pwd)
-                        --     -- default: nil
-                        --     output = nil,
-                        --     -- true for all crates.io and external crates, false only the local
-                        --     -- crates
-                        --     -- default: true
-                        --     full = true,
-                        -- }
-                    },
-
-                    -- all the opts to send to nvim-lspconfig
-                    -- these override the defaults set by rust-tools.nvim
-                    -- see https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md#rust_analyzer
-                    -- server = {} -- rust-analyer options
-                },
-            }
+            require("pepeye.rust_tools").config()
         end,
         requires ="neovim/nvim-lspconfig",
     },

@@ -85,6 +85,12 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/opt/dashboard-nvim"
   },
+  ["dial.nvim"] = {
+    config = { "\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\vconfig\16pepeye.dial\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/opt/dial.nvim"
+  },
   ["diffview.nvim"] = {
     loaded = false,
     needs_bufread = false,
@@ -107,8 +113,13 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/opt/gitsigns.nvim"
   },
+  ["indent-blankline.nvim"] = {
+    config = { "\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21pepeye.blankline\frequire\0" },
+    loaded = true,
+    path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/start/indent-blankline.nvim"
+  },
   ["lsp_signature.nvim"] = {
-    config = { "\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\14on_attach\18lsp_signature\frequire\0" },
+    config = { "\27LJ\2\nC\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\vconfig\25pepeye.lsp_signature\frequire\0" },
     loaded = false,
     needs_bufread = false,
     path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/opt/lsp_signature.nvim"
@@ -130,6 +141,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/start/null-ls.nvim"
   },
+  ["numb.nvim"] = {
+    config = { "\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\vconfig\16pepeye.numb\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/opt/numb.nvim"
+  },
   ["nvim-autopairs"] = {
     config = { "\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19core.autopairs\frequire\0" },
     load_after = {
@@ -140,7 +157,7 @@ _G.packer_plugins = {
     path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/opt/nvim-autopairs"
   },
   ["nvim-colorizer.lua"] = {
-    config = { "\27LJ\2\n|\0\0\4\0\5\0\b6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0B\0\3\1K\0\1\0\1\0\a\rRRGGBBAA\2\vRRGGBB\2\bRGB\2\vcss_fn\2\bcss\2\vhsl_fn\2\vrgb_fn\2\1\2\0\0\6*\nsetup\14colorizer\frequire\0" },
+    config = { "\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\vconfig\21pepeye.colorizer\frequire\0" },
     loaded = true,
     path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/start/nvim-colorizer.lua"
   },
@@ -168,6 +185,18 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/opt/nvim-lspinstall"
   },
+  ["nvim-notify"] = {
+    config = { "\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\vconfig\18pepeye.notify\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/opt/nvim-notify"
+  },
+  ["nvim-spectre"] = {
+    config = { "\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\vconfig\19pepeye.spectre\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/opt/nvim-spectre"
+  },
   ["nvim-toggleterm.lua"] = {
     config = { "\27LJ\2\n;\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\18core.terminal\frequire\0" },
     loaded = false,
@@ -194,6 +223,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/start/nvim-web-devicons"
   },
+  ["octo.nvim"] = {
+    config = { "\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\vconfig\16pepeye.octo\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/opt/octo.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/start/packer.nvim"
@@ -212,10 +247,15 @@ _G.packer_plugins = {
     path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/start/project.nvim"
   },
   ["rust-tools.nvim"] = {
-    config = { "\27LJ\2\n�\5\0\0\b\0\25\0%6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\23\0005\3\21\0005\4\3\0005\5\4\0=\5\5\0045\5\6\0=\5\a\0045\5\b\0=\5\t\0045\5\18\0004\6\t\0005\a\n\0>\a\1\0065\a\v\0>\a\2\0065\a\f\0>\a\3\0065\a\r\0>\a\4\0065\a\14\0>\a\5\0065\a\15\0>\a\6\0065\a\16\0>\a\a\0065\a\17\0>\a\b\6=\6\19\5=\5\20\4=\4\22\3=\3\24\2B\0\2\1K\0\1\0\topts\1\0\0\ntools\1\0\0\18hover_actions\vborder\1\0\1\15auto_focus\1\1\3\0\0\b│\16FloatBorder\1\3\0\0\b╰\16FloatBorder\1\3\0\0\b─\16FloatBorder\1\3\0\0\b╯\16FloatBorder\1\3\0\0\b│\16FloatBorder\1\3\0\0\b╮\16FloatBorder\1\3\0\0\b─\16FloatBorder\1\3\0\0\b╭\16FloatBorder\16inlay_hints\1\0\n\24right_align_padding\3\a\16right_align\1\26max_len_align_padding\3\1\18max_len_align\1\23other_hints_prefix\b=> \14highlight\fComment\27parameter_hints_prefix\b<- \25show_parameter_hints\2\30only_current_line_autocmd\15CursorHold\22only_current_line\1\16debuggables\1\0\1\18use_telescope\2\14runnables\1\0\1\18use_telescope\2\1\0\2\23hover_with_actions\2\17autoSetHints\2\nsetup\15rust-tools\frequire\0" },
+    config = { "\27LJ\2\n@\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\vconfig\22pepeye.rust_tools\frequire\0" },
     loaded = false,
     needs_bufread = true,
     path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/opt/rust-tools.nvim"
+  },
+  ["symbols-outline.nvim"] = {
+    config = { "\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\vconfig\19pepeye.outline\frequire\0" },
+    loaded = true,
+    path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/start/symbols-outline.nvim"
   },
   ["telescope.nvim"] = {
     config = { "\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19core.telescope\frequire\0" },
@@ -225,6 +265,11 @@ _G.packer_plugins = {
   ["tokyonight.nvim"] = {
     loaded = true,
     path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/start/tokyonight.nvim"
+  },
+  ["twilight.nvim"] = {
+    config = { "\27LJ\2\n>\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\vconfig\20pepeye.twilight\frequire\0" },
+    loaded = true,
+    path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/start/twilight.nvim"
   },
   ["vim-vsnip"] = {
     loaded = false,
@@ -236,43 +281,64 @@ _G.packer_plugins = {
     loaded = false,
     needs_bufread = false,
     path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/opt/which-key.nvim"
+  },
+  ["zen-mode.nvim"] = {
+    config = { "\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\vconfig\15pepeye.zen\frequire\0" },
+    loaded = true,
+    path = "/Users/pepeye/.local/share/lunarvim/site/pack/packer/start/zen-mode.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: project.nvim
-time([[Config for project.nvim]], true)
-try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17core.project\frequire\0", "config", "project.nvim")
-time([[Config for project.nvim]], false)
 -- Config for: nvim-colorizer.lua
 time([[Config for nvim-colorizer.lua]], true)
-try_loadstring("\27LJ\2\n|\0\0\4\0\5\0\b6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0B\0\3\1K\0\1\0\1\0\a\rRRGGBBAA\2\vRRGGBB\2\bRGB\2\vcss_fn\2\bcss\2\vhsl_fn\2\vrgb_fn\2\1\2\0\0\6*\nsetup\14colorizer\frequire\0", "config", "nvim-colorizer.lua")
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\vconfig\21pepeye.colorizer\frequire\0", "config", "nvim-colorizer.lua")
 time([[Config for nvim-colorizer.lua]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\18core.nvimtree\frequire\0", "config", "nvim-tree.lua")
-time([[Config for nvim-tree.lua]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20core.treesitter\frequire\0", "config", "nvim-treesitter")
-time([[Config for nvim-treesitter]], false)
 -- Config for: lualine.nvim
 time([[Config for lualine.nvim]], true)
 try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17core.lualine\frequire\0", "config", "lualine.nvim")
 time([[Config for lualine.nvim]], false)
+-- Config for: twilight.nvim
+time([[Config for twilight.nvim]], true)
+try_loadstring("\27LJ\2\n>\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\vconfig\20pepeye.twilight\frequire\0", "config", "twilight.nvim")
+time([[Config for twilight.nvim]], false)
+-- Config for: project.nvim
+time([[Config for project.nvim]], true)
+try_loadstring("\27LJ\2\n:\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\17core.project\frequire\0", "config", "project.nvim")
+time([[Config for project.nvim]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19core.telescope\frequire\0", "config", "telescope.nvim")
 time([[Config for telescope.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\18core.nvimtree\frequire\0", "config", "nvim-tree.lua")
+time([[Config for nvim-tree.lua]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21pepeye.blankline\frequire\0", "config", "indent-blankline.nvim")
+time([[Config for indent-blankline.nvim]], false)
+-- Config for: zen-mode.nvim
+time([[Config for zen-mode.nvim]], true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\vconfig\15pepeye.zen\frequire\0", "config", "zen-mode.nvim")
+time([[Config for zen-mode.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20core.treesitter\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
+-- Config for: symbols-outline.nvim
+time([[Config for symbols-outline.nvim]], true)
+try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\vconfig\19pepeye.outline\frequire\0", "config", "symbols-outline.nvim")
+time([[Config for symbols-outline.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au InsertCharPre * ++once lua require("packer.load")({'friendly-snippets'}, { event = "InsertCharPre *" }, _G.packer_plugins)]]
-vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'nvim-toggleterm.lua', 'barbar.nvim', 'dashboard-nvim', 'which-key.nvim'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au BufRead * ++once lua require("packer.load")({'octo.nvim', 'diffview.nvim', 'git-blame.nvim', 'gitsigns.nvim', 'rust-tools.nvim', 'numb.nvim', 'nvim-comment', 'nvim-notify', 'nvim-spectre', 'dial.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
+vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'lsp_signature.nvim', 'vim-vsnip', 'nvim-ts-autotag', 'nvim-compe'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au VimEnter * ++once lua require("packer.load")({'nvim-lspinstall'}, { event = "VimEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'nvim-compe', 'vim-vsnip', 'lsp_signature.nvim', 'nvim-ts-autotag'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au BufRead * ++once lua require("packer.load")({'rust-tools.nvim', 'diffview.nvim', 'git-blame.nvim', 'gitsigns.nvim', 'nvim-comment'}, { event = "BufRead *" }, _G.packer_plugins)]]
+vim.cmd [[au InsertCharPre * ++once lua require("packer.load")({'friendly-snippets'}, { event = "InsertCharPre *" }, _G.packer_plugins)]]
+vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'which-key.nvim', 'nvim-toggleterm.lua', 'barbar.nvim', 'dashboard-nvim'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
