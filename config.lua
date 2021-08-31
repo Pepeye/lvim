@@ -30,6 +30,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- end
 
 -- Use which-key to add extra bindings with the leader-key prefix
+lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
 lvim.builtin.which_key.mappings["z"] = { "<cmd>ZenMode<cr>", "Zen" }
 lvim.builtin.which_key.mappings["R"] = {
     name = "Replace",
@@ -78,10 +79,14 @@ lvim.builtin.which_key.mappings["D"] = {
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
+
+-- Builtins
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
+lvim.builtin.dap.active = true
+lvim.builtin.bufferline.active = true
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {}
@@ -91,6 +96,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- statusline settings
 lvim.builtin.lualine.style = "lvim"
 -- lvim.builtin.lualine.options.theme = "nord"
+lvim.builtin.lualine.sections.lualine_a = { "mode" }
 
 local colors = {
     nord1  = '#3B4252',
@@ -104,15 +110,20 @@ local colors = {
 
 lvim.builtin.lualine.options.theme = {
     normal = {
-        a = {fg = colors.nord1, bg = colors.nord8, gui = 'bold'},
+        -- a = {fg = colors.nord1, bg = colors.nord8, gui = 'bold'},
+        a = {fg = colors.nord1, bg = colors.nord8},
         b = {fg = colors.nord5, bg = colors.nord1},
         c = {fg = colors.nord5, bg = colors.nord3}
     },
-    insert = {a = {fg = colors.nord1, bg = colors.nord6, gui = 'bold'}},
-    visual = {a = {fg = colors.nord1, bg = colors.nord7, gui = 'bold'}},
-    replace = {a = {fg = colors.nord1, bg = colors.nord13, gui = 'bold'}},
+    -- insert = {a = {fg = colors.nord1, bg = colors.nord6, gui = 'bold'}},
+    -- visual = {a = {fg = colors.nord1, bg = colors.nord7, gui = 'bold'}},
+    -- replace = {a = {fg = colors.nord1, bg = colors.nord13, gui = 'bold'}},
+    insert = {a = {fg = colors.nord1, bg = colors.nord6}},
+    visual = {a = {fg = colors.nord1, bg = colors.nord7}},
+    replace = {a = {fg = colors.nord1, bg = colors.nord13}},
     inactive = {
-        a = {fg = colors.nord1, bg = colors.nord8, gui = 'bold'},
+        -- a = {fg = colors.nord1, bg = colors.nord8, gui = 'bold'},
+        a = {fg = colors.nord1, bg = colors.nord8},
         b = {fg = colors.nord5, bg = colors.nord1},
         c = {fg = colors.nord5, bg = colors.nord1}
     },
