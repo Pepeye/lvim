@@ -3,6 +3,7 @@
 -- general
 lvim.format_on_save = true
 lvim.lint_on_save = true
+lvim.lsp.diagnostics.virtual_text = false
 -- lvim.colorscheme = "onedarker"
 lvim.colorscheme = "nord"
 
@@ -65,6 +66,15 @@ lvim.builtin.which_key.mappings["D"] = {
     r = { "<cmd>DiffviewRefresh<cr>", "DiffviewRefresh" },
     t = { "<cmd>DiffviewToggleFiles<cr>", "DiffviewToggleFiles" },
 
+}
+lvim.builtin.which_key.mappings["t"] = {
+    name = "Trouble",
+    x = { "<cmd>Trouble<cr>", "TroubleToggle" },
+    w = { "<cmd>TroubleToggle lsp_workspace_diagnostics<cr>", "TroubleToggleWorkspaceDiagnostics" },
+    d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "TroubleToggleDocumentDiagnostics" },
+    q = { "<cmd>TroubleToggle quickfix<cr>", "TroubleToggleQuickFix" },
+    l = { "<cmd>TroubleToggle loclist<cr>", "TroubleToggleLoclist" },
+    r = { "<cmd>TroubleToggle lsp_references<cr>", "TroubleToggleLspReferences" },
 }
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 -- lvim.builtin.which_key.mappings["t"] = {
@@ -178,6 +188,10 @@ lvim.plugins = {
     -- {"lunarvim/colorschemes"},
     { "shaunsingh/nord.nvim" },
     { "folke/tokyonight.nvim" },
+    {
+      "folke/trouble.nvim",
+      cmd = "TroubleToggle",
+    },
     {
         "pwntester/octo.nvim",
         event = "BufRead",
