@@ -34,6 +34,8 @@ end
 lvim.builtin.which_key.mappings.l.d = { "<cmd>TroubleToggle<cr>", "Diagnostics" }
 lvim.builtin.which_key.mappings.l.R = { "<cmd>TroubleToggle lsp_references<cr>", "References" }
 lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
+lvim.builtin.which_key.mappings.T.h = { "<cmd>TSHighlightCapturesUnderCursor<cr>", "Highlight" }
+lvim.builtin.which_key.mappings.T.p = { "<cmd>TSPlaygroundToggle<cr>", "Playground" }
 lvim.builtin.which_key.mappings["z"] = { "<cmd>ZenMode<cr>", "Zen" }
 lvim.builtin.which_key.mappings["R"] = {
     name = "Replace",
@@ -185,11 +187,17 @@ lvim.builtin.lualine.sections.lualine_a = { "mode" }
 
 -- Additional Plugins
 lvim.plugins = {
-    { "shaunsingh/nord.nvim" },
+    { "lunarvim/colorschemes" },
+    { "arcticicestudio/nord-vim" },
+    -- { "shaunsingh/nord.nvim" },
     { "folke/tokyonight.nvim" },
     {
         "folke/trouble.nvim",
         cmd = "TroubleToggle",
+    },
+    {
+      "nvim-treesitter/playground",
+      event = "BufRead",
     },
     {
         "pwntester/octo.nvim",
