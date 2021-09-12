@@ -191,13 +191,22 @@ lvim.plugins = {
     { "arcticicestudio/nord-vim" },
     -- { "shaunsingh/nord.nvim" },
     { "folke/tokyonight.nvim" },
+    { "folke/lsp-colors.nvim" },
+    { 
+      "folke/persistence.nvim",
+      event = "BufReadPre", -- only start session saving when a file opened
+      module = "persistence",
+      config = function()
+        require("persistence").setup()
+      end,
+    },
     {
         "folke/trouble.nvim",
         cmd = "TroubleToggle",
     },
     {
-      "nvim-treesitter/playground",
-      event = "BufRead",
+        "nvim-treesitter/playground",
+        event = "BufRead",
     },
     {
         "pwntester/octo.nvim",
@@ -212,6 +221,13 @@ lvim.plugins = {
         config = function()
             require("pepeye.lsp_signature").config()
         end,
+    },
+    {
+      "hrsh7th/nvim-cmp",
+      requires = {
+        "hrsh7th/vim-vsnip",
+        "hrsh7th/cmp-buffer",
+      }
     },
     {
         "lukas-reineke/indent-blankline.nvim",
