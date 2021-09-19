@@ -229,16 +229,16 @@ lvim.plugins = {
         require("pepeye.saga").config()
       end,
     },
-    {
-      "hrsh7th/nvim-cmp",
-      -- config = function ()
-      --   require("pepeye.cmp").config()
-      -- end,
-      requires = {
-        "hrsh7th/vim-vsnip",
-        "hrsh7th/cmp-buffer",
-      },
-    },
+    -- {
+    --   "hrsh7th/nvim-cmp",
+    --   -- config = function ()
+    --   --   require("pepeye.cmp").config()
+    --   -- end,
+    --   requires = {
+    --     "hrsh7th/vim-vsnip",
+    --     "hrsh7th/cmp-buffer",
+    --   },
+    -- },
     {
       "rcarriga/nvim-dap-ui",
       config = function ()
