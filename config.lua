@@ -5,6 +5,7 @@ lvim.format_on_save = true
 lvim.lint_on_save = true
 lvim.lsp.diagnostics.virtual_text = false
 lvim.colorscheme = "tokyonight"
+lvim.completeopt = { "menuone", "noinsert", "noselect" }
 
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
@@ -189,10 +190,9 @@ lvim.builtin.lualine.sections.lualine_a = { "mode" }
 lvim.plugins = {
     { "lunarvim/colorschemes" },
     { "arcticicestudio/nord-vim" },
-    -- { "shaunsingh/nord.nvim" },
     { "folke/tokyonight.nvim" },
     { "folke/lsp-colors.nvim" },
-    { 
+    {
       "folke/persistence.nvim",
       event = "BufReadPre", -- only start session saving when a file opened
       module = "persistence",
@@ -223,11 +223,28 @@ lvim.plugins = {
         end,
     },
     {
+      "glepnir/lspsaga.nvim",
+      event = "BufRead",
+      config = function ()
+        require("pepeye.saga").config()
+      end,
+    },
+    {
       "hrsh7th/nvim-cmp",
+      -- config = function ()
+      --   require("pepeye.cmp").config()
+      -- end,
       requires = {
         "hrsh7th/vim-vsnip",
         "hrsh7th/cmp-buffer",
-      }
+      },
+    },
+    {
+      "rcarriga/nvim-dap-ui",
+      config = function ()
+        require("pepeye.dapui").config()
+      end,
+      requires = {"mfussenegger/nvim-dap"},
     },
     {
         "lukas-reineke/indent-blankline.nvim",
@@ -290,7 +307,7 @@ lvim.plugins = {
         "folke/twilight.nvim",
         config = function()
             require("pepeye.twilight").config()
-        end
+        end,
     },
     {
         "norcalli/nvim-colorizer.lua",
