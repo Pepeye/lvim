@@ -17,7 +17,7 @@ M.config = function ()
       repl = "r",
     },
     sidebar = {
-      open_on_start = true,
+      -- open_on_start = false,
       -- You can change the order of elements in the sidebar
       elements = {
         -- Provide as ID strings or tables with "id" and "size" keys
