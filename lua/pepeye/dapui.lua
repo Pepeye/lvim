@@ -17,7 +17,6 @@ M.config = function ()
       repl = "r",
     },
     sidebar = {
-      -- open_on_start = false,
       -- You can change the order of elements in the sidebar
       elements = {
         -- Provide as ID strings or tables with "id" and "size" keys
@@ -33,7 +32,6 @@ M.config = function ()
       position = "left", -- Can be "left", "right", "top", "bottom"
     },
     tray = {
-      open_on_start = true,
       elements = { "repl" },
       size = 10,
       position = "bottom", -- Can be "left", "right", "top", "bottom"

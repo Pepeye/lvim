@@ -193,12 +193,12 @@ lvim.plugins = {
     { "folke/tokyonight.nvim" },
     { "folke/lsp-colors.nvim" },
     {
-      "folke/persistence.nvim",
-      event = "BufReadPre", -- only start session saving when a file opened
-      module = "persistence",
-      config = function()
-        require("persistence").setup()
-      end,
+        "folke/persistence.nvim",
+        event = "BufReadPre", -- only start session saving when a file opened
+        module = "persistence",
+        config = function()
+            require("persistence").setup()
+        end,
     },
     {
         "folke/trouble.nvim",
@@ -223,11 +223,11 @@ lvim.plugins = {
         end,
     },
     {
-      "glepnir/lspsaga.nvim",
-      event = "BufRead",
-      config = function ()
-        require("pepeye.saga").config()
-      end,
+        "glepnir/lspsaga.nvim",
+        event = "BufRead",
+        config = function ()
+            require("pepeye.saga").config()
+        end,
     },
     -- {
     --   "hrsh7th/nvim-cmp",
@@ -240,11 +240,11 @@ lvim.plugins = {
     --   },
     -- },
     {
-      "rcarriga/nvim-dap-ui",
-      config = function ()
-        require("pepeye.dapui").config()
-      end,
-      requires = {"mfussenegger/nvim-dap"},
+        "rcarriga/nvim-dap-ui",
+        config = function ()
+            require("pepeye.dapui").config()
+        end,
+        requires = {"mfussenegger/nvim-dap"},
     },
     {
         "lukas-reineke/indent-blankline.nvim",
@@ -337,6 +337,7 @@ lvim.plugins = {
         requires ="neovim/nvim-lspconfig",
     },
 }
+
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
