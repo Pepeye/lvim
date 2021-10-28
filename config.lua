@@ -1,12 +1,19 @@
+--[[
+lvim is the global options object
+
+Linters should be
+filled in as strings with either
+a global executable or a path to
+an executable
+]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
 -- general
+lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.lint_on_save = true
-lvim.lsp.diagnostics.virtual_text = false
 lvim.colorscheme = "tokyonight"
 lvim.completeopt = { "menuone", "noinsert", "noselect" }
-
+lvim.lsp.diagnostics.virtual_text = false
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -17,32 +24,29 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- edit a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
--- Telescope
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
-lvim.builtin.telescope.on_config_done = function()
-    local actions = require "telescope.actions"
-    -- for input mode
-    lvim.builtin.telescope.defaults.mappings.i["<C-j>"] = actions.move_selection_next
-    lvim.builtin.telescope.defaults.mappings.i["<C-k>"] = actions.move_selection_previous
-    lvim.builtin.telescope.defaults.mappings.i["<C-n>"] = actions.cycle_history_next
-    lvim.builtin.telescope.defaults.mappings.i["<C-p>"] = actions.cycle_history_prev
-    -- for normal mode
-    lvim.builtin.telescope.defaults.mappings.n["<C-j>"] = actions.move_selection_next
-    lvim.builtin.telescope.defaults.mappings.n["<C-k>"] = actions.move_selection_previous
-end
+-- lvim.builtin.telescope.on_config_done = function()
+--   local actions = require "telescope.actions"
+--   -- for input mode
+--   lvim.builtin.telescope.defaults.mappings.i["<C-j>"] = actions.move_selection_next
+--   lvim.builtin.telescope.defaults.mappings.i["<C-k>"] = actions.move_selection_previous
+--   lvim.builtin.telescope.defaults.mappings.i["<C-n>"] = actions.cycle_history_next
+--   lvim.builtin.telescope.defaults.mappings.i["<C-p>"] = actions.cycle_history_prev
+--   -- for normal mode
+--   lvim.builtin.telescope.defaults.mappings.n["<C-j>"] = actions.move_selection_next
+--   lvim.builtin.telescope.defaults.mappings.n["<C-k>"] = actions.move_selection_previous
+-- end
 
 -- Use which-key to add extra bindings with the leader-key prefix
-lvim.builtin.which_key.mappings.l.d = { "<cmd>TroubleToggle<cr>", "Diagnostics" }
-lvim.builtin.which_key.mappings.l.R = { "<cmd>TroubleToggle lsp_references<cr>", "References" }
-lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
-lvim.builtin.which_key.mappings.T.h = { "<cmd>TSHighlightCapturesUnderCursor<cr>", "Highlight" }
-lvim.builtin.which_key.mappings.T.p = { "<cmd>TSPlaygroundToggle<cr>", "Playground" }
-lvim.builtin.which_key.mappings["z"] = { "<cmd>ZenMode<cr>", "Zen" }
-lvim.builtin.which_key.mappings["R"] = {
-    name = "Replace",
-    r = { "<cmd>lua require('spectre').open()<cr>", "Replace" },
-    w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word" },
-    f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
+lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.which_key.mappings["t"] = {
+  name = "+Trouble",
+  r = { "<cmd>Trouble lsp_references<cr>", "References" },
+  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+  d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnostics" },
+  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+  w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
 }
 lvim.builtin.which_key.mappings["r"] = {
     name = "Rust Analyzer",
@@ -71,79 +75,35 @@ lvim.builtin.which_key.mappings["D"] = {
     r = { "<cmd>DiffviewRefresh<cr>", "DiffviewRefresh" },
     t = { "<cmd>DiffviewToggleFiles<cr>", "DiffviewToggleFiles" },
 }
-lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
-lvim.builtin.which_key.mappings["t"] = {
-    name = "+Trouble",
-    r = { "<cmd>Trouble lsp_references<cr>", "References" },
-    f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-    d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnosticss" },
-    q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-    l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-    w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnosticss" },
-}
+lvim.builtin.which_key.mappings["z"] = { "<cmd>ZenMode<cr>", "Zen" }
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-
--- Builtins
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
-lvim.builtin.nvimtree.side = "left"
+lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
-lvim.builtin.dap.active = true
-lvim.builtin.bufferline.active = true
 
-
--- Treesitter
 -- if you don't want all the parsers change this to a table of the ones you want
-lvim.builtin.treesitter.ensure_installed = "maintained"
--- lvim.builtin.treesitter.ensure_installed = {}
+lvim.builtin.treesitter.ensure_installed = {
+    "bash",
+    "c",
+    "html",
+    "javascript",
+    "json",
+    "lua",
+    "python",
+    "svelte",
+    "typescript",
+    "css",
+    "rust",
+    "java",
+    "yaml",
+}
+
 lvim.builtin.treesitter.autotag.enable = true
-lvim.builtin.treesitter.playground.enable = true
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
-
--- statusline settings
-lvim.builtin.lualine.style = "lvim"
--- lvim.builtin.lualine.options.theme = "nord"
-lvim.builtin.lualine.sections.lualine_a = { "mode" }
-
-
--- -- nord lualine
--- local colors = {
---     nord1  = '#3B4252',
---     nord3  = '#4C566A',
---     nord5  = '#E5E9F0',
---     nord6  = '#ECEFF4',
---     nord7  = '#8FBCBB',
---     nord8  = '#88C0D0',
---     nord13 = '#EBCB8B',
--- }
-
--- lvim.builtin.lualine.options.theme = {
---     normal = {
---         -- a = {fg = colors.nord1, bg = colors.nord8, gui = 'bold'},
---         a = {fg = colors.nord1, bg = colors.nord8},
---         b = {fg = colors.nord5, bg = colors.nord1},
---         c = {fg = colors.nord5, bg = colors.nord3},
---     },
---     -- insert = {a = {fg = colors.nord1, bg = colors.nord6, gui = 'bold'}},
---     -- visual = {a = {fg = colors.nord1, bg = colors.nord7, gui = 'bold'}},
---     -- replace = {a = {fg = colors.nord1, bg = colors.nord13, gui = 'bold'}},
---     insert = {a = {fg = colors.nord1, bg = colors.nord6}},
---     visual = {a = {fg = colors.nord1, bg = colors.nord7}},
---     replace = {a = {fg = colors.nord1, bg = colors.nord13}},
---     inactive = {
---         -- a = {fg = colors.nord1, bg = colors.nord8, gui = 'bold'},
---         a = {fg = colors.nord1, bg = colors.nord8},
---         b = {fg = colors.nord5, bg = colors.nord1},
---         c = {fg = colors.nord5, bg = colors.nord1},
---     },
--- }
-
--- lvim.builtin.lualine.options.component_separators = "|"
--- lvim.builtin.lualine.options.component_separators = {'', ''}
--- lvim.builtin.lualine.options.section_separators = {'', ''}
 
 -- generic LSP settings
 -- you can set a custom on_attach function that will be used for all the language servers
@@ -175,16 +135,56 @@ lvim.builtin.lualine.sections.lualine_a = { "mode" }
 -- lvim.lang.python.formatters = {
 --   {
 --     exe = "black",
---     args = {}
 --   }
 -- }
 -- set an additional linter
 -- lvim.lang.python.linters = {
 --   {
 --     exe = "flake8",
---     args = {}
 --   }
 -- }
+
+-- statusline settings
+lvim.builtin.lualine.style = "lvim"
+-- lvim.builtin.lualine.options.theme = "nord"
+lvim.builtin.lualine.sections.lualine_a = { "mode" }
+
+
+-- -- nord lualine
+-- local colors = {
+--     nord1  = '#3B4252',
+--     nord3  = '#4C566A',
+--     nord5  = '#E5E9F0',
+--     nord6  = '#ECEFF4',
+--     nord7  = '#8FBCBB',
+--     nord8  = '#88C0D0',
+--     nord13 = '#EBCB8B',
+-- }
+
+-- lvim.builtin.lualine.options.theme = {
+--     normal = {
+--         -- a = {fg = colors.nord1, bg = colors.nord8, gui = 'bold'},
+--         a = {fg = colors.nord1, bg = colors.nord8},
+--         b = {fg = colors.nord5, bg = colors.nord1},
+--         c = {fg = colors.nord5, bg = colors.nord3},
+--     },
+--     -- insert = {a = {fg = colors.nord1, bg = colors.nord6, gui = 'bold'}},
+--     -- visual = {a = {fg = colors.nord1, bg = colors.nord7, gui = 'bold'}},
+--     -- replace = {a = {fg = colors.nord1, bg = colors.nord13, gui = 'bold'}},
+--     insert = {a = {fg = colors.nord1, bg = colors.nord6}},
+--     visua = {a = {fg = colors.nord1, bg = colors.nord7}},
+--     replace = {a = {fg = colors.nord1, bg = colors.nord13}},
+--     inactive = {
+--         -- a = {fg = colors.nord1, bg = colors.nord8, gui = 'bold'},
+--         a = {fg = colors.nord1, bg = colors.nord8},
+--         b = {fg = colors.nord5, bg = colors.nord1},
+--         c = {fg = colors.nord5, bg = colors.nord1},
+--     },
+-- }
+
+-- lvim.builtin.lualine.options.component_separators = "|"
+-- lvim.builtin.lualine.options.component_separators = {'', ''}
+-- lvim.builtin.lualine.options.section_separators = {'', ''}l
 
 -- Additional Plugins
 lvim.plugins = {
@@ -205,8 +205,9 @@ lvim.plugins = {
         cmd = "TroubleToggle",
     },
     {
-        "nvim-treesitter/playground",
-        event = "BufRead",
+        'tzachar/cmp-tabnine',
+        run='./install.sh',
+        requires = 'hrsh7th/nvim-cmp'
     },
     {
         "pwntester/octo.nvim",
@@ -229,23 +230,13 @@ lvim.plugins = {
             require("pepeye.saga").config()
         end,
     },
-    -- {
-    --   "hrsh7th/nvim-cmp",
-    --   -- config = function ()
-    --   --   require("pepeye.cmp").config()
-    --   -- end,
-    --   requires = {
-    --     "hrsh7th/vim-vsnip",
-    --     "hrsh7th/cmp-buffer",
-    --   },
+-- {
+    --     "rcarriga/nvim-dap-ui",
+    --     config = function ()
+    --         require("pepeye.dapui").config()
+    --     end,
+    --     requires = {"mfussenegger/nvim-dap"},
     -- },
-    {
-        "rcarriga/nvim-dap-ui",
-        config = function ()
-            require("pepeye.dapui").config()
-        end,
-        requires = {"mfussenegger/nvim-dap"},
-    },
     {
         "lukas-reineke/indent-blankline.nvim",
         -- event = "BufReadPre",
@@ -337,7 +328,6 @@ lvim.plugins = {
         requires ="neovim/nvim-lspconfig",
     },
 }
-
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
