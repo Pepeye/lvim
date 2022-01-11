@@ -188,8 +188,8 @@ lvim.builtin.lualine.sections.lualine_a = { "mode" }
 
 -- Additional Plugins
 lvim.plugins = {
-    { "lunarvim/colorschemes" },
     { "arcticicestudio/nord-vim" },
+    { "EdenEast/nightfox.nvim" },
     { "folke/tokyonight.nvim" },
     { "folke/lsp-colors.nvim" },
     {
