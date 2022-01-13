@@ -160,4 +160,3 @@ function M.maximize_current_split()
 end
 
 return M
-n
