@@ -8,7 +8,7 @@ M.config = function()
     auto_preview = false,
     position = "right",
     relative_width = true,
-    width = 35,
+    width = 25,
     show_numbers = false,
     show_relative_numbers = false,
     show_symbol_details = true,
@@ -29,7 +29,7 @@ M.config = function()
       Module = { icon = kind.Module, hl = "TSNamespace" },
       Namespace = { icon = kind.Namespace, hl = "TSNamespace" },
       Package = { icon = kind.Package, hl = "TSNamespace" },
-      Class = { icon = kind.Class, hl = "TSType" },
+      Class = { icon = ind.Class, hl = "TSType" },
       Method = { icon = kind.Method, hl = "TSMethod" },
       Property = { icon = kind.Property, hl = "TSMethod" },
       Field = { icon = kind.Field, hl = "TSField" },
@@ -56,4 +56,3 @@ M.config = function()
 end
 
 return M
-

@@ -47,8 +47,8 @@ lvim.builtin.treesitter.ensure_installed = {
 }
 
 lvim.builtin.treesitter.autotag.enable = true
-lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
+require("user.builtin").config()
 
 -- generic LSP settings
 -- you can set a custom on_attach function that will be used for all the language servers
@@ -91,7 +91,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- D E B U G G I N G
 if lvim.builtin.dap.active then
-  -- require("user.dapui").config()
+  require("user.dap").config()
 end
 
 -- S T A T U S L I N E
