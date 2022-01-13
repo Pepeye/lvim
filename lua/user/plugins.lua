@@ -2,44 +2,45 @@ local M = {}
 
 M.config = function()
   lvim.plugins = {
-      {
-        "rose-pine/neovim",
-        as = "rose-pine",
-        config = function()
-          require("user.theme").rose_pine()
-          vim.cmd [[colorscheme rose-pine]]
-        end,
-        cond = function()
-          local _time = os.date "*t"
-          return (_time.hour >= 1 and _time.hour < 9)
-        end,
-      },
-      {
-        "folke/tokyonight.nvim",
-        config = function()
-          require("user.theme").tokyonight()
-          vim.cmd [[colorscheme tokyonight]]
-        end,
-        cond = function()
-          local _time = os.date "*t"
-          return _time.hour >= 9 and _time.hour < 21
-        end,
-      },
-      {
-        "rebelot/kanagawa.nvim",
-        config = function()
-          require("user.theme").kanagawa()
-          vim.cmd [[colorscheme kanagawa]]
-        end,
-        cond = function()
-          local _time = os.date "*t"
-          return (_time.hour >= 21 and _time.hour < 24) or (_time.hour >= 0 and _time.hour < 1)
-        end,
-      },
+      -- {
+      --   "rose-pine/neovim",
+      --   as = "rose-pine",
+      --   config = function()
+      --     require("user.theme").rose_pine()
+      --     vim.cmd [[colorscheme rose-pine]]
+      --   end,
+      --   cond = function()
+      --     local _time = os.date "*t"
+      --     return (_time.hour >= 1 and _time.hour < 9)
+      --   end,
+      -- },
+      -- {
+      --   "folke/tokyonight.nvim",
+      --   config = function()
+      --     require("user.theme").tokyonight()
+      --     vim.cmd [[colorscheme tokyonight]]
+      --   end,
+      --   cond = function()
+      --     local _time = os.date "*t"
+      --     return _time.hour >= 9 and _time.hour < 21
+      --   end,
+      -- },
+      -- {
+      --   "rebelot/kanagawa.nvim",
+      --   config = function()
+      --     require("user.theme").kanagawa()
+      --     vim.cmd [[colorscheme kanagawa]]
+      --   end,
+      --   cond = function()
+      --     local _time = os.date "*t"
+      --     return (_time.hour >= 21 and _time.hour < 24) or (_time.hour >= 0 and _time.hour < 1)
+      --   end,
+      -- },
       { "arcticicestudio/nord-vim" },
       { "EdenEast/nightfox.nvim" },
       { "folke/tokyonight.nvim" },
-      { "folke/lsp-colors.nvim" },
+      { "rose-pine/neovim" },
+      -- { "folke/lsp-colors.nvim" },
       {
           "folke/persistence.nvim",
           event = "BufReadPre", -- only start session saving when a file opened
@@ -61,27 +62,27 @@ M.config = function()
           "pwntester/octo.nvim",
           event = "BufRead",
           config = function()
-              require("pepeye.octo").config()
+              require("user.octo").config()
           end,
       },
       {
           "ray-x/lsp_signature.nvim",
           event = "InsertEnter",
           config = function()
-              require("pepeye.lsp_signature").config()
+              require("user.lsp_signature").config()
           end,
       },
       {
           "glepnir/lspsaga.nvim",
           event = "BufRead",
           config = function ()
-              require("pepeye.saga").config()
+              require("user.saga").config()
           end,
       },
   -- {
       --     "rcarriga/nvim-dap-ui",
       --     config = function ()
-      --         require("pepeye.dapui").config()
+      --         require("user.dapui").config()
       --     end,
       --     requires = {"mfussenegger/nvim-dap"},
       -- },
@@ -89,14 +90,14 @@ M.config = function()
           "lukas-reineke/indent-blankline.nvim",
           -- event = "BufReadPre",
           config = function()
-              require "pepeye.blankline"
+              require "user.blankline"
           end,
       },
       {
           "sindrets/diffview.nvim",
           event = "BufRead",
           config = function()
-              require("pepeye.diffview").config()
+              require("user.diffview").config()
           end,
       },
       {
@@ -118,60 +119,60 @@ M.config = function()
           "nacro90/numb.nvim",
           event = "BufRead",
           config = function()
-              require("pepeye.numb").config()
+              require("user.numb").config()
           end,
       },
       {
           "monaqa/dial.nvim",
           event = "BufRead",
           config = function()
-              require("pepeye.dial").config()
+              require("user.dial").config()
           end,
       },
       {
           "rcarriga/nvim-notify",
           event = "BufRead",
           config = function()
-              require("pepeye.notify").config()
+              require("user.notify").config()
           end,
       },
       {
           "simrat39/symbols-outline.nvim",
           -- cmd = "SymbolsOutline",
           config = function()
-              require("pepeye.outline").config()
+              require("user.outline").config()
           end,
       },
       {
           "folke/twilight.nvim",
           config = function()
-              require("pepeye.twilight").config()
+              require("user.twilight").config()
           end,
       },
       {
           "norcalli/nvim-colorizer.lua",
           config = function()
-              require("pepeye.colorizer").config()
+              require("user.colorizer").config()
           end,
       },
       {
           "windwp/nvim-spectre",
           event = "BufRead",
           config = function()
-              require("pepeye.spectre").config()
+              require("user.spectre").config()
           end,
       },
       {
           "folke/zen-mode.nvim",
           config = function()
-              require("pepeye.zen").config()
+              require("user.zen").config()
           end,
       },
       {
           "simrat39/rust-tools.nvim",
           event = "BufRead",
           config = function()
-              require("pepeye.rust_tools").config()
+              require("user.rust_tools").config()
           end,
           requires ="neovim/nvim-lspconfig",
       },

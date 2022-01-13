@@ -91,24 +91,25 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- D E B U G G I N G
 if lvim.builtin.dap.active then
-  require("pepeye.dapui").config()
+  -- require("user.dapui").config()
 end
 
 -- S T A T U S L I N E
 if lvim.builtin.fancy_statusline.active then
-  require("pepeye.lualine").config()
+  require("user.lualine").config()
 end
 
 -- P L U G I N S 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-require("pepeye.plugins").config()
+require("user.plugins").config()
 
 -- A U T O C O M M A N D S
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
+require("user.autocommands").config()
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
 -- }
 
 -- K E Y M A P S [view all the defaults by pressing <leader>Lk]
 -- add your own keymapping
-require("pepeye.keymaps").config()
+require("user.keymaps").config()

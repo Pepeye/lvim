@@ -37,7 +37,7 @@ M.doom = function()
   local doom = require "doom-one"
   doom.setup {
     cursor_coloring = true,
-    terminal_colors  false,
+    terminal_colors = false,
     italic_comments = true,
     enable_treesitter = true,
     transparent_background = lvim.transparent_window,
