@@ -14,75 +14,20 @@ lvim.format_on_save = true
 lvim.colorscheme = "tokyonight"
 lvim.completeopt = { "menuone", "noinsert", "noselect" }
 lvim.lsp.diagnostics.virtual_text = false
-
--- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
--- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
--- unmap a default keymapping
--- lvim.keys.normal_mode["<C-Up>"] = ""
--- edit a default keymapping
--- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
--- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
--- lvim.builtin.telescope.on_config_done = function()
---   local actions = require "telescope.actions"
---   -- for input mode
---   lvim.builtin.telescope.defaults.mappings.i["<C-j>"] = actions.move_selection_next
---   lvim.builtin.telescope.defaults.mappings.i["<C-k>"] = actions.move_selection_previous
---   lvim.builtin.telescope.defaults.mappings.i["<C-n>"] = actions.cycle_history_next
---   lvim.builtin.telescope.defaults.mappings.i["<C-p>"] = actions.cycle_history_prev
---   -- for normal mode
---   lvim.builtin.telescope.defaults.mappings.n["<C-j>"] = actions.move_selection_next
---   lvim.builtin.telescope.defaults.mappings.n["<C-k>"] = actions.move_selection_previous
--- end
-
--- Use which-key to add extra bindings with the leader-key prefix
-lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
-lvim.builtin.which_key.mappings["t"] = {
-  name = "+Trouble",
-  r = { "<cmd>Trouble lsp_references<cr>", "References" },
-  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-  d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnostics" },
-  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-  w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
-}
-lvim.builtin.which_key.mappings["r"] = {
-    name = "Rust Analyzer",
-    h = {
-        name = "Hover",
-        a = { "<cmd>lua require'rust-tools.hover_actions'.hover_actions()<cr>", "Hover Actions" },
-        r = { "<cmd>lua require'rust-tools.hover_range'.hover_range()<cr>", "Hover Range" },
-    },
-    i = {
-        name = "Inlay hints",
-        d = { "<cmd>lua require('rust-tools.inlay_hints').disable_inlay_hints()<cr>", "Disable Hints" },
-        s = { "<cmd>lua require('rust-tools.inlay_hints').set_inlay_hints()<cr>", "Set Hints" },
-        t = { "<cmd>lua require('rust-tools.inlay_hints').toggle_inlay_hints()<cr>", "Toggle Hints" },
-    },
-    j = { "<cmd>lua require'rust-tools.join_lines'.join_lines()<cr>", "Join Lines" },
-    m = { "<cmd>lua require'rust-tools.expand_macro'.expand_macro()<cr>", "Expand Macro" },
-    o = { "<cmd>lua require'rust-tools.open_cargo_toml'.open_cargo_toml()<cr>", "Open cargo.toml" },
-    p = { "<cmd>lua require'rust-tools.parent_module'.parent_module()<cr>", "Parent Module" },
-    r = { "<cmd>lua require('rust-tools.runnables').runnables()<cr>", "Runnables" },
-}
-lvim.builtin.which_key.mappings["D"] = {
-    name = "Diffview",
-    c = { "<cmd>DiffviewClose<cr>", "DiffviewClose" },
-    f = { "<cmd>DiffviewFocusFiles<cr>", "DiffviewFocusFiles" },
-    o = { "<cmd>DiffviewOpen<cr>", "DiffviewOpen" },
-    r = { "<cmd>DiffviewRefresh<cr>", "DiffviewRefresh" },
-    t = { "<cmd>DiffviewToggleFiles<cr>", "DiffviewToggleFiles" },
-}
-lvim.builtin.which_key.mappings["z"] = { "<cmd>ZenMode<cr>", "Zen" }
-
--- TODO: User Config for predefined plugins
--- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
+-- customisations
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
+
+lvim.builtin.tabnine = { active = true } -- change to false if you don't like tabnine
+lvim.builtin.dap.active = false -- change this to enable/disable debugging
+lvim.builtin.orgmode = { active = false } -- change to true if you want orgmode.nvim
+lvim.builtin.fancy_statusline = { active = true } -- enable/disable fancy statusline
+lvim.builtin.fancy_bufferline = { active = true } -- enable/disable fancy bufferline
+lvim.builtin.fancy_dashboard = { active = true } -- enable/disable fancy dashboard
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -144,192 +89,26 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   }
 -- }
 
--- statusline settings
-lvim.builtin.lualine.style = "lvim"
--- lvim.builtin.lualine.options.theme = "nord"
-lvim.builtin.lualine.sections.lualine_a = { "mode" }
+-- D E B U G G I N G
+if lvim.builtin.dap.active then
+  require("pepeye.dapui").config()
+end
 
+-- S T A T U S L I N E
+if lvim.builtin.fancy_statusline.active then
+  require("pepeye.lualine").config()
+end
 
--- -- nord lualine
--- local colors = {
---     nord1  = '#3B4252',
---     nord3  = '#4C566A',
---     nord5  = '#E5E9F0',
---     nord6  = '#ECEFF4',
---     nord7  = '#8FBCBB',
---     nord8  = '#88C0D0',
---     nord13 = '#EBCB8B',
--- }
+-- P L U G I N S 
+-- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
+require("pepeye.plugins").config()
 
--- lvim.builtin.lualine.options.theme = {
---     normal = {
---         -- a = {fg = colors.nord1, bg = colors.nord8, gui = 'bold'},
---         a = {fg = colors.nord1, bg = colors.nord8},
---         b = {fg = colors.nord5, bg = colors.nord1},
---         c = {fg = colors.nord5, bg = colors.nord3},
---     },
---     -- insert = {a = {fg = colors.nord1, bg = colors.nord6, gui = 'bold'}},
---     -- visual = {a = {fg = colors.nord1, bg = colors.nord7, gui = 'bold'}},
---     -- replace = {a = {fg = colors.nord1, bg = colors.nord13, gui = 'bold'}},
---     insert = {a = {fg = colors.nord1, bg = colors.nord6}},
---     visua = {a = {fg = colors.nord1, bg = colors.nord7}},
---     replace = {a = {fg = colors.nord1, bg = colors.nord13}},
---     inactive = {
---         -- a = {fg = colors.nord1, bg = colors.nord8, gui = 'bold'},
---         a = {fg = colors.nord1, bg = colors.nord8},
---         b = {fg = colors.nord5, bg = colors.nord1},
---         c = {fg = colors.nord5, bg = colors.nord1},
---     },
--- }
-
--- lvim.builtin.lualine.options.component_separators = "|"
--- lvim.builtin.lualine.options.component_separators = {'', ''}
--- lvim.builtin.lualine.options.section_separators = {'', ''}l
-
--- Additional Plugins
-lvim.plugins = {
-    { "arcticicestudio/nord-vim" },
-    { "EdenEast/nightfox.nvim" },
-    { "folke/tokyonight.nvim" },
-    { "folke/lsp-colors.nvim" },
-    {
-        "folke/persistence.nvim",
-        event = "BufReadPre", -- only start session saving when a file opened
-        module = "persistence",
-        config = function()
-            require("persistence").setup()
-        end,
-    },
-    {
-        "folke/trouble.nvim",
-        cmd = "TroubleToggle",
-    },
-    {
-        'tzachar/cmp-tabnine',
-        run='./install.sh',
-        requires = 'hrsh7th/nvim-cmp'
-    },
-    {
-        "pwntester/octo.nvim",
-        event = "BufRead",
-        config = function()
-            require("pepeye.octo").config()
-        end,
-    },
-    {
-        "ray-x/lsp_signature.nvim",
-        event = "InsertEnter",
-        config = function()
-            require("pepeye.lsp_signature").config()
-        end,
-    },
-    {
-        "glepnir/lspsaga.nvim",
-        event = "BufRead",
-        config = function ()
-            require("pepeye.saga").config()
-        end,
-    },
--- {
-    --     "rcarriga/nvim-dap-ui",
-    --     config = function ()
-    --         require("pepeye.dapui").config()
-    --     end,
-    --     requires = {"mfussenegger/nvim-dap"},
-    -- },
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        -- event = "BufReadPre",
-        config = function()
-            require "pepeye.blankline"
-        end,
-    },
-    {
-        "sindrets/diffview.nvim",
-        event = "BufRead",
-        config = function()
-            require("pepeye.diffview").config()
-        end,
-    },
-    {
-        "f-person/git-blame.nvim",
-        event = "BufRead",
-        config = function()
-            vim.cmd "highlight default link gitblame SpecialComment"
-            vim.g.gitblame_enabled = 0
-        end,
-    },
-    {
-        "windwp/nvim-ts-autotag",
-        event = "InsertEnter",
-        config = function()
-            require("nvim-ts-autotag").setup()
-        end,
-    },
-    {
-        "nacro90/numb.nvim",
-        event = "BufRead",
-        config = function()
-            require("pepeye.numb").config()
-        end,
-    },
-    {
-        "monaqa/dial.nvim",
-        event = "BufRead",
-        config = function()
-            require("pepeye.dial").config()
-        end,
-    },
-    {
-        "rcarriga/nvim-notify",
-        event = "BufRead",
-        config = function()
-            require("pepeye.notify").config()
-        end,
-    },
-    {
-        "simrat39/symbols-outline.nvim",
-        -- cmd = "SymbolsOutline",
-        config = function()
-            require("pepeye.outline").config()
-        end,
-    },
-    {
-        "folke/twilight.nvim",
-        config = function()
-            require("pepeye.twilight").config()
-        end,
-    },
-    {
-        "norcalli/nvim-colorizer.lua",
-        config = function()
-            require("pepeye.colorizer").config()
-        end,
-    },
-    {
-        "windwp/nvim-spectre",
-        event = "BufRead",
-        config = function()
-            require("pepeye.spectre").config()
-        end,
-    },
-    {
-        "folke/zen-mode.nvim",
-        config = function()
-            require("pepeye.zen").config()
-        end,
-    },
-    {
-        "simrat39/rust-tools.nvim",
-        event = "BufRead",
-        config = function()
-            require("pepeye.rust_tools").config()
-        end,
-        requires ="neovim/nvim-lspconfig",
-    },
-}
-
+-- A U T O C O M M A N D S
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
 -- }
+
+-- K E Y M A P S [view all the defaults by pressing <leader>Lk]
+-- add your own keymapping
+require("pepeye.keymaps").config()
