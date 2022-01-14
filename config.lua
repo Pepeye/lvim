@@ -99,7 +99,7 @@ if lvim.builtin.fancy_statusline.active then
   require("user.lualine").config()
 end
 
--- P L U G I N S 
+-- P L U G I N S
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 require("user.plugins").config()
 
