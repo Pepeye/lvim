@@ -79,13 +79,6 @@ M.config = function()
               require("user.saga").config()
           end,
       },
-  -- {
-      --     "rcarriga/nvim-dap-ui",
-      --     config = function ()
-      --         require("user.dapui").config()
-      --     end,
-      --     requires = {"mfussenegger/nvim-dap"},
-      -- },
       {
           "rcarriga/nvim-dap-ui",
           config = function()
@@ -119,14 +112,6 @@ M.config = function()
           end,
       },
       {
-          "f-person/git-blame.nvim",
-          event = "BufRead",
-          config = function()
-              vim.cmd "highlight default link gitblame SpecialComment"
-              vim.g.gitblame_enabled = 0
-          end,
-      },
-      {
           "windwp/nvim-ts-autotag",
           event = "InsertEnter",
           config = function()
@@ -139,6 +124,13 @@ M.config = function()
           config = function()
               require("user.numb").config()
           end,
+      },
+      {
+          "goolord/alpha-nvim",
+          config = function()
+              require("user.dashboard").config()
+          end,
+          disable = not lvim.builtin.fancy_dashboard.active,
       },
       {
           "monaqa/dial.nvim",

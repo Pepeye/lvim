@@ -6,7 +6,7 @@ local function set_bufferline_keymaps()
   lvim.keys.normal_mode["<S-h>"] = "<Cmd>BufferLineCyclePrev<CR>"
   lvim.keys.normal_mode["[b"] = "<Cmd>BufferLineMoveNext<CR>"
   lvim.keys.normal_mode["]b"] = "<Cmd>BufferLineMovePrev<CR>"
-  lvim.builtin.which_key.mappings["c"] = { "<CMD>bdelete!<CR>", "Close Buffer" }
+  -- lvim.builtin.which_key.mappings["c"] = { "<CMD>bdelete!<CR>", "Close Buffer" }
   lvim.builtin.which_key.mappings.b = {
     name = "Buffers",
     ["1"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "goto 1" },
@@ -49,6 +49,7 @@ M.config = function()
 
   -- which key settings
   -- Use which-key to add extra bindings with the leader-key prefix
+  lvim.builtin.which_key.mappings["c"] = { "<cmd>BufferClose!<CR>", "Close Buffer" }
   lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
   lvim.builtin.which_key.mappings["t"] = {
     name = "+Trouble",

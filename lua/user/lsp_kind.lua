@@ -30,8 +30,8 @@ M.cmp_kind = {
 }
 
 M.icons = {
-  error = " ",
-  warn = " ",
+  error = " ",
+  warn = " ",
   info = "",
   hint = " ",
   code_action = "",
