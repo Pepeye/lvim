@@ -87,6 +87,24 @@ M.config = function()
       --     requires = {"mfussenegger/nvim-dap"},
       -- },
       {
+          "rcarriga/nvim-dap-ui",
+          config = function()
+              require("users.dapui").setup()
+          end,
+          ft = { "python", "rust", "go" },
+          event = "BufReadPost",
+          requires = { "mfussenegger/nvim-dap" },
+          disable = not lvim.builtin.dap.active,
+      },
+      {
+          "akinsho/bufferline.nvim",
+          config = function()
+              require("user.bufferline").config()
+          end,
+          requires = "nvim-web-devicons",
+          disable = not lvim.builtin.fancy_bufferline.active,
+      },
+      {
           "lukas-reineke/indent-blankline.nvim",
           -- event = "BufReadPre",
           config = function()
