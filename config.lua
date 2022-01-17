@@ -50,6 +50,24 @@ lvim.builtin.treesitter.autotag.enable = true
 lvim.builtin.treesitter.highlight.enabled = true
 require("user.builtin").config()
 
+
+-- D E B U G G I N G
+if lvim.builtin.dap.active then
+  require("user.dap").config()
+end
+
+-- S T A T U S L I N E
+if lvim.builtin.fancy_statusline.active then
+  require("user.lualine").config()
+end
+
+-- L S P
+-- 
+vim.list_extend(
+  lvim.lsp.override,
+  { "rust_analyzer", "tsserver", "dockerls", "texlab", "sumneko_lua", "gopls", "jsonls", "yamlls" }
+)
+require("user.null_ls").config()
 -- generic LSP settings
 -- you can set a custom on_attach function that will be used for all the language servers
 -- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
@@ -88,16 +106,6 @@ require("user.builtin").config()
 --     exe = "flake8",
 --   }
 -- }
-
--- D E B U G G I N G
-if lvim.builtin.dap.active then
-  require("user.dap").config()
-end
-
--- S T A T U S L I N E
-if lvim.builtin.fancy_statusline.active then
-  require("user.lualine").config()
-end
 
 -- P L U G I N S
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile

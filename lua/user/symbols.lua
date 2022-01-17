@@ -29,7 +29,7 @@ M.config = function()
       Module = { icon = kind.Module, hl = "TSNamespace" },
       Namespace = { icon = kind.Namespace, hl = "TSNamespace" },
       Package = { icon = kind.Package, hl = "TSNamespace" },
-      Class = { icon = ind.Class, hl = "TSType" },
+      Class = { icon = kind.Class, hl = "TSType" },
       Method = { icon = kind.Method, hl = "TSMethod" },
       Property = { icon = kind.Property, hl = "TSMethod" },
       Field = { icon = kind.Field, hl = "TSField" },
