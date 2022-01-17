@@ -9,7 +9,7 @@ M.config = function()
   for _, plugin in pairs(disabled_plugins) do
     vim.g["loaded_" .. plugin] = 1
   end
-  
+
   vim.g.did_load_filetypes = 1
   vim.g.ultest_summary_width = 30
   vim.opt.relativenumber = true
@@ -97,7 +97,7 @@ M.config = function()
     precedes = "‹", -- Alternatives: … «
     trail = "•", -- BULLET (U+2022, UTF-8: E2 80 A2)
   }
-  
+
   -- neovide
   -- https://github.com/neovide/neovide
   if vim.g.neovide then
