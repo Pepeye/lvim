@@ -1,7 +1,7 @@
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "tokyonight"
+-- lvim.colorscheme = "tokyonight"
 lvim.completeopt = { "menuone", "noinsert", "noselect" }
 lvim.lsp.diagnostics.virtual_text = false
 lvim.leader = "space"
@@ -55,7 +55,7 @@ lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
 
 lvim.builtin.tabnine = { active = true } -- change to false if you don't like tabnine
-lvim.builtin.dap.active = false -- change this to enable/disable debugging
+lvim.builtin.dap.active = true -- change this to enable/disable debugging
 lvim.builtin.orgmode = { active = false } -- change to true if you want orgmode.nvim
 lvim.builtin.fancy_statusline = { active = true } -- enable/disable fancy statusline
 lvim.builtin.fancy_bufferline = { active = true } -- enable/disable fancy bufferline
@@ -99,7 +99,6 @@ vim.list_extend(
   lvim.lsp.override,
   { "rust_analyzer", "tsserver", "dockerls", "texlab", "sumneko_lua", "gopls", "jsonls", "yamlls" }
 )
-require("user.null_ls").config()
 -- require("user.null_ls").config()
 -- generic LSP settings
 

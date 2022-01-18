@@ -40,7 +40,7 @@ M.config = function()
       { "EdenEast/nightfox.nvim" },
       -- { "folke/tokyonight.nvim" },
       -- { "rose-pine/neovim" },
-      -- { "folke/lsp-colors.nvim" },
+      { "folke/lsp-colors.nvim" },
       {
           "folke/persistence.nvim",
           event = "BufReadPre", -- only start session saving when a file opened
@@ -82,7 +82,7 @@ M.config = function()
       {
           "rcarriga/nvim-dap-ui",
           config = function()
-              require("users.dapui").setup()
+              require("user.dapui").config()
           end,
           ft = { "python", "rust", "go" },
           event = "BufReadPost",
@@ -180,8 +180,6 @@ M.config = function()
           requires ="neovim/nvim-lspconfig",
       },
   }
-end 
+end
 
 return M
-
-
