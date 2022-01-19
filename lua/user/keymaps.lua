@@ -1,5 +1,31 @@
 local M = {}
 
+local function set_bufferline_keymaps()
+  lvim.keys.normal_mode["<S-x>"] = ":Bdelete!<CR>"
+  lvim.keys.normal_mode["<S-l>"] = "<Cmd>BufferLineCycleNext<CR>"
+  lvim.keys.normal_mode["<S-h>"] = "<Cmd>BufferLineCyclePrev<CR>"
+  lvim.keys.normal_mode["[b"] = "<Cmd>BufferLineMoveNext<CR>"
+  lvim.keys.normal_mode["]b"] = "<Cmd>BufferLineMovePrev<CR>"
+  lvim.builtin.which_key.mappings["c"] = { "<CMD>Bdelete!<CR>", "Close Buffer" }
+  lvim.builtin.which_key.mappings.b = {
+    name = "Buffers",
+    ["1"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "goto 1" },
+    ["2"] = { "<Cmd>BufferLineGoToBuffer 2<CR>", "goto 2" },
+    ["3"] = { "<Cmd>BufferLineGoToBuffer 3<CR>", "goto 3" },
+    ["4"] = { "<Cmd>BufferLineGoToBuffer 4<CR>", "goto 4" },
+    ["5"] = { "<Cmd>BufferLineGoToBuffer 5<CR>", "goto 5" },
+    ["6"] = { "<Cmd>BufferLineGoToBuffer 6<CR>", "goto 6" },
+    ["7"] = { "<Cmd>BufferLineGoToBuffer 7<CR>", "goto 7" },
+    ["8"] = { "<Cmd>BufferLineGoToBuffer 8<CR>", "goto 8" },
+    ["9"] = { "<Cmd>BufferLineGoToBuffer 9<CR>", "goto 9" },
+    c = { "<Cmd>BufferLinePickClose<CR>", "delete buffer" },
+    p = { "<Cmd>BufferLinePick<CR>", "pick buffer" },
+    t = { "<Cmd>BufferLineGroupToggle docs<CR>", "toggle groups" },
+    f = { "<cmd>Telescope buffers<cr>", "Find" },
+    b = { "<cmd>b#<cr>", "Previous" },
+  }
+end
+
 M.config = function()
   -- keymaps
   lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
@@ -65,8 +91,13 @@ M.config = function()
       t = { "<cmd>DiffviewToggleFiles<cr>", "DiffviewToggleFiles" },
   }
   lvim.builtin.which_key.mappings["z"] = { "<cmd>ZenMode<cr>", "Zen" }
-  
+
   -- bufferline keymaps
+  if lvim.builtin.fancy_bufferline.active then
+    set_bufferline_keymaps()
+  else
+    lvim.keys.normal_mode["<S-c>"] = ":BufferClose<CR>"
+  end
 
 end
 
