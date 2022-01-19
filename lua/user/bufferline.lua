@@ -62,35 +62,67 @@ M.config = function()
       diagnostics_indicator = diagnostics_indicator,
       diagnostics_update_in_insert = false,
       custom_filter = custom_filter,
+      -- NOTE: to find the filetype of a side panel
+      -- go into the buffer and
+      -- run :echo &filetype to print its filetype
       offsets = {
+        
         {
           filetype = "undotree",
           text = "Undotree",
           highlight = "PanelHeading",
           padding = 1,
+          text_align = "left"
         },
         {
           filetype = "NvimTree",
           text = "Explorer",
           highlight = "PanelHeading",
           padding = 1,
+          text_align = "left"
         },
         {
           filetype = "DiffviewFiles",
           text = "Diff View",
           highlight = "PanelHeading",
           padding = 1,
+          text_align = "left"
         },
         {
           filetype = "flutterToolsOutline",
           text = "Flutter Outline",
           highlight = "PanelHeading",
+          text_align = "left"
+        },
+        {
+          -- ensure symbols outline order has scopes first
+          filetype = "dapui",
+          text = "Debugger",
+          highlight = "PanelHeading",
+          padding = 1,
+          text_align = "left"
+        },
+        {
+          -- ensure symbols outline order has scopes first
+          filetype = "dapui_scopes",
+          text = "Debugger",
+          highlight = "PanelHeading",
+          padding = 1,
+          text_align = "left"
+        },
+        {
+          filetype = "Outline",
+          text = "Symbols",
+          highlight = "PanelHeading",
+          padding = 1,
+          text_align = "left"
         },
         {
           filetype = "packer",
           text = "Packer",
           highlight = "PanelHeading",
           padding = 1,
+          text_align = "left"
         },
       },
       groups = {
