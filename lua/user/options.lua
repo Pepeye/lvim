@@ -10,6 +10,7 @@ M.config = function()
     vim.g["loaded_" .. plugin] = 1
   end
 
+  vim.opt.termguicolors = true
   vim.opt.relativenumber = true
   vim.opt.wrap = true
   vim.wo.foldmethod = "expr"
