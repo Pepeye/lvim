@@ -2,44 +2,45 @@ local M = {}
 
 M.config = function()
   lvim.plugins = {
-    {
-      "rose-pine/neovim",
-      as = "rose-pine",
-      config = function()
-        require("user.theme").rose_pine()
-        vim.cmd [[colorscheme rose-pine]]
-      end,
-      cond = function()
-        local _time = os.date "*t"
-        return (_time.hour >= 1 and _time.hour < 9)
-      end,
-    },
-    {
-      "folke/tokyonight.nvim",
-      config = function()
-        require("user.theme").tokyonight()
-        vim.cmd [[colorscheme tokyonight]]
-      end,
-      cond = function()
-        local _time = os.date "*t"
-        return _time.hour >= 9 and _time.hour < 21
-      end,
-    },
-    {
-      "rebelot/kanagawa.nvim",
-      config = function()
-        require("user.theme").kanagawa()
-        vim.cmd [[colorscheme kanagawa]]
-      end,
-      cond = function()
-        local _time = os.date "*t"
-        return (_time.hour >= 21 and _time.hour < 24) or (_time.hour >= 0 and _time.hour < 1)
-      end,
-    },
+    -- {
+    --   "rose-pine/neovim",
+    --   as = "rose-pine",
+    --   config = function()
+    --     require("user.theme").rose_pine()
+    --     vim.cmd [[colorscheme rose-pine]]
+    --   end,
+    --   cond = function()
+    --     local _time = os.date "*t"
+    --     return (_time.hour >= 1 and _time.hour < 19)
+    --   end,
+    -- },
+    -- {
+    --   "folke/tokyonight.nvim",
+    --   config = function()
+    --     require("user.theme").tokyonight()
+    --     vim.cmd [[colorscheme tokyonight]]
+    --   end,
+    --   cond = function()
+    --     local _time = os.date "*t"
+    --     return _time.hour >= 19 and _time.hour < 21
+    --   end,
+    -- },
+    -- {
+    --   "rebelot/kanagawa.nvim",
+    --   config = function()
+    --     require("user.theme").kanagawa()
+    --     vim.cmd [[colorscheme kanagawa]]
+    --   end,
+    --   cond = function()
+    --     local _time = os.date "*t"
+    --     return (_time.hour >= 21 and _time.hour < 24) or (_time.hour >= 0 and _time.hour < 1)
+    --   end,
+    -- },
     { "arcticicestudio/nord-vim" },
     { "EdenEast/nightfox.nvim" },
-    -- { "folke/tokyonight.nvim" },
-    -- { "rose-pine/neovim" },
+    { "folke/tokyonight.nvim" },
+    { "rose-pine/neovim" },
+    { "rebelot/kanagawa.nvim" },
     { "folke/lsp-colors.nvim" },
     {
       "folke/persistence.nvim",
@@ -109,9 +110,9 @@ M.config = function()
     {
       "sindrets/diffview.nvim",
       event = "BufRead",
-      config = function()
-          require("user.diffview").config()
-      end,
+      -- config = function()
+      --     require("user.diffview").config()
+      -- end,
     },
     {
       "windwp/nvim-ts-autotag",

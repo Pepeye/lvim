@@ -14,10 +14,6 @@ local function set_bufferline_keymaps()
     ["3"] = { "<Cmd>BufferLineGoToBuffer 3<CR>", "goto 3" },
     ["4"] = { "<Cmd>BufferLineGoToBuffer 4<CR>", "goto 4" },
     ["5"] = { "<Cmd>BufferLineGoToBuffer 5<CR>", "goto 5" },
-    ["6"] = { "<Cmd>BufferLineGoToBuffer 6<CR>", "goto 6" },
-    ["7"] = { "<Cmd>BufferLineGoToBuffer 7<CR>", "goto 7" },
-    ["8"] = { "<Cmd>BufferLineGoToBuffer 8<CR>", "goto 8" },
-    ["9"] = { "<Cmd>BufferLineGoToBuffer 9<CR>", "goto 9" },
     c = { "<Cmd>BufferLinePickClose<CR>", "delete buffer" },
     p = { "<Cmd>BufferLinePick<CR>", "pick buffer" },
     t = { "<Cmd>BufferLineGroupToggle docs<CR>", "toggle groups" },
@@ -52,7 +48,11 @@ M.config = function()
   if lvim.builtin.fancy_dashboard.active then
     lvim.builtin.which_key.mappings[";"] = { "<cmd>Alpha<CR>", "Dashboard" }
   end
+
+  -- projects
   lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+
+  -- trouble plugin
   lvim.builtin.which_key.mappings["t"] = {
     name = "+Trouble",
     d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnostics" },
@@ -63,6 +63,8 @@ M.config = function()
     t = { "<cmd>TodoLocList <cr>", "Todo" },
     w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
   }
+
+  -- rust mappings
   lvim.builtin.which_key.mappings["r"] = {
       name = "Rust Analyzer",
       h = {
@@ -82,6 +84,8 @@ M.config = function()
       p = { "<cmd>lua require'rust-tools.parent_module'.parent_module()<cr>", "Parent Module" },
       r = { "<cmd>lua require('rust-tools.runnables').runnables()<cr>", "Runnables" },
   }
+
+  -- diff view
   lvim.builtin.which_key.mappings["D"] = {
       name = "Diffview",
       c = { "<cmd>DiffviewClose<cr>", "DiffviewClose" },
