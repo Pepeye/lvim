@@ -73,9 +73,6 @@ M.config = function()
     {
       "glepnir/lspsaga.nvim",
       event = "BufRead",
-      config = function ()
-          require("user.saga").config()
-      end,
     },
     {
       "rcarriga/nvim-dap-ui",
