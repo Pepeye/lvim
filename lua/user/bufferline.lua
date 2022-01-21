@@ -66,7 +66,6 @@ M.config = function()
       -- go into the buffer and
       -- run :echo &filetype to print its filetype
       offsets = {
-        
         {
           filetype = "undotree",
           text = "Undotree",
@@ -174,6 +173,24 @@ M.config = function()
             end,
           },
         },
+      },
+    },
+    highlights = {
+      indicator_selected = {
+        guifg = {
+            attribute = "fg",
+            highlight = "Type"
+        },
+        guibg = {
+            attribute = "bg",
+            highlight = "Type"
+        },
+      },
+      buffer_selected = {
+        gui = "NONE",
+      },
+      pick_selected = {
+        gui = "NONE",
       },
     },
   }

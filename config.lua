@@ -1,7 +1,7 @@
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
--- lvim.colorscheme = "tokyonight"
+lvim.colorscheme = "tokyonight"
 lvim.completeopt = { "menuone", "noinsert", "noselect" }
 lvim.lsp.diagnostics.virtual_text = false
 lvim.leader = "space"
