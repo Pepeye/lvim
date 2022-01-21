@@ -62,9 +62,6 @@ M.config = function()
     {
       "pwntester/octo.nvim",
       event = "BufRead",
-      config = function()
-          require("user.octo").config()
-      end,
     },
     {
       "ray-x/lsp_signature.nvim",
@@ -110,9 +107,6 @@ M.config = function()
     {
       "sindrets/diffview.nvim",
       event = "BufRead",
-      -- config = function()
-      --     require("user.diffview").config()
-      -- end,
     },
     {
       "windwp/nvim-ts-autotag",
@@ -149,12 +143,7 @@ M.config = function()
           require("user.outline").config()
       end,
     },
-    {
-      "folke/twilight.nvim",
-      config = function()
-          require("user.twilight").config()
-      end,
-    },
+    { "folke/twilight.nvim" },
     {
       "norcalli/nvim-colorizer.lua",
       config = function()
@@ -164,9 +153,6 @@ M.config = function()
     {
       "windwp/nvim-spectre",
       event = "BufRead",
-      config = function()
-          require("user.spectre").config()
-      end,
     },
     {
       "folke/zen-mode.nvim",
