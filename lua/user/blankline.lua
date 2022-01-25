@@ -45,7 +45,7 @@ vim.opt.list = true
 local M = {}
 
 M.config = function()
-    local status_ok, numb = pcall(require, "indent-blankline")
+    local status_ok, blankline = pcall(require, "indent-blankline")
     if not status_ok then
         return
     end

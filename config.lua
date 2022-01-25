@@ -55,7 +55,7 @@ lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
 
 lvim.builtin.tabnine = { active = true } -- change to false if you don't like tabnine
-lvim.builtin.dap.active = true -- change this to enable/disable debugging
+lvim.builtin.dap = { active = true } -- change this to enable/disable debugging
 lvim.builtin.orgmode = { active = false } -- change to true if you want orgmode.nvim
 lvim.builtin.fancy_statusline = { active = true } -- enable/disable fancy statusline
 lvim.builtin.fancy_bufferline = { active = true } -- enable/disable fancy bufferline
